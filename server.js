@@ -14,10 +14,10 @@ const app = express();
 
 //mysql connection
 const connection = mysql.createConnection({
-	host     : 'localhost',
-	user     : 'root',
-	password : '',
-	database : 'blog'
+	host     : 'us-cdbr-east-05.cleardb.net',
+	user     : 'b38448ba3640bf',
+	password : '70ba6c26',
+	database : 'heroku_2e3a5cc9d238bb7'
 }); 
 
 //initializing session modules
