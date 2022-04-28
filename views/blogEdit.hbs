@@ -1,0 +1,40 @@
+
+{{#if user}}
+
+    <main class="col-lg-8">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Edit Post</h1>
+       
+      </div>
+
+      <div class="container col-lg-8">
+
+              {{#each blogEdit}}
+                <form action="/edit/post/{{this.id}}" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Title</label>
+                  <input name="title" type="text" class="form-control" placeholder="Title" value = "{{this.title}}" >
+                </div>              
+                
+                <div class="form-group">
+                  Current Image:
+                  
+                  <img src="../images/{{this.image}}" class="img-fluid" alt="Responsive image">
+                  Select new Image:
+                  <input name="image-file" type="file" class="form-control form-control-file" >   
+                  <label for="exampleFormControlTextarea1">Text</label>
+                  <textarea name="text" class="form-control" rows="10" >{{this.content}}</textarea>
+
+                 
+                  <input class="form-control btn btn-primary" type="submit" style="margin-top: 5px;margin-bottom: 5px;" value="Save Changes">
+                </div>
+               
+               </form>
+             {{/each}}
+
+      </div>
+
+ 
+    </main>
+
+{{/if}}

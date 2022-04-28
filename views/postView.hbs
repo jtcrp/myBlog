@@ -1,0 +1,59 @@
+
+  <div class="col-lg-8">
+      <!-- Post content-->
+      {{#each postView}}
+      <article>
+          <!-- Post header-->
+          <header class="mb-4">
+              <!-- Post title-->
+              <h1 class="fw-bolder mb-1">{{this.title}}</h1>
+              <!-- Post meta content-->
+              <div class="text-muted fst-italic mb-2">Posted on {{this.publishedAt}} by {{{../author}}}</div>
+             
+              <div><a href="/edit/{{this.id}}" class="btn btn-default btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
+                    Edit
+                 </a>
+                  <a href="/delete/{{this.id}}" class="btn btn-default btn-sm" data-toggle="tooltip" data-placement="top" title="Delete">
+                    Delete
+                 </a>
+              </div>
+              
+          </header>
+          <!-- Preview image figure-->
+          <figure class="mb-4"><img class="img-fluid rounded" src="../images/{{this.image}}" alt="..." /></figure>
+          <!-- Post content-->
+          <section class="mb-5">
+              {{this.content}}
+          </section>
+      </article>
+      {{/each}}
+      <!-- Comments section-->
+      <section class="mb-5">
+          <div class="card bg-light">
+              <div class="card-body">
+                  {{#if user}}
+                    <!-- Comment form-->
+                    <form action = "/comment" method="POST" class="mb-4">
+                      <textarea class="form-control" name="text" rows="3" placeholder="Join the discussion and leave a comment!"></textarea>
+                      <button type="submit" class="btn btn-warning submit" style="margin-top: 10px;">Submit</button>
+                     <input type="hidden"  name="postId" value={{{./postId}}}> 
+                    </form>
+                  {{/if}}
+                  <!-- Single comment-->
+                  {{#each commentsData}}
+                  <div class="d-flex">
+                      
+                      <div class="ms-3">
+                          <div class="fw-bold">{{this.author_id}} :</div>
+                          {{this.comment_text}}
+                          <br>
+                          <i>{{this.date}}</i>
+
+                      </div>
+                  </div>
+                  <hr>
+                  {{/each}}
+              </div>
+          </div>
+      </section>
+  </div>

@@ -1,0 +1,56 @@
+    <div class="row align-items-md-stretch">
+      <section class="details-card">
+    <div class="container">
+        <div class="row">
+        {{#each homeView}}
+            <div class="col-md-4">
+                <div class="card-content">
+                    <div class="card-img">
+                        <img src="../images/{{this.image}}" alt="">
+                    </div>
+                    <div class="card-desc">
+                        <h3>{{this.title}}</h3>
+                        <p>{{this.content}}</p>
+                            <a href="view/{{this.id}}" class="btn-card">Read</a>   
+                    </div>
+                </div>
+            </div>
+    {{/each}}
+        </div>
+    </div>
+</section>
+    </div>
+
+    
+<div class="container-fluid">
+    <div class="row">
+  {{#each postView}}
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h2 class="blog-post-title">{{this.title}}</h2>
+        </div>
+       
+        <p class="blog-post-meta">{{this.publishedAt}} by {{{../author}}}</p>
+    
+        <div class="row">
+            
+            <div class="blog-post">
+                
+                  <img src="../images/{{this.image}}" class="img-fluid" alt="Responsive image">
+                
+            </div>
+  
+        </div>
+  
+        <div class="row">
+          
+          {{this.content}}
+          
+        </div>
+  
+      </main>
+  {{/each}}
+   </div>
+  </div>
+  
+  
