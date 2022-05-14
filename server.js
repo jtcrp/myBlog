@@ -13,13 +13,24 @@ const app = express();
 
 
 //mysql connection
+
 const connection = mysql.createConnection({
 	host     : 'us-cdbr-east-05.cleardb.net',
 	user     : 'b38448ba3640bf',
 	password : '70ba6c26',
 	database : 'heroku_2e3a5cc9d238bb7'
 }); 
+/*
+//mysql connection
+const connection = mysql.createConnection({
+	host     : 'localhost',
+	user     : 'root',
+	password : '',
+	database : 'blog'
+}); 
 
+mysql://b38448ba3640bf:70ba6c26@us-cdbr-east-05.cleardb.net/heroku_2e3a5cc9d238bb7?reconnect=true
+*/
 //initializing session modules
 app.use(session({
 	secret: 'secret',
@@ -31,7 +42,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'static')));
 app.use('/images', express.static(process.cwd() + '/images')); //making images folder easir to be reached
 
-
+ 
 //defining the handlebar extension as .hbs
 app.engine( "hbs", engine({
     defaultLayout: 'main',
