@@ -92,6 +92,7 @@ function getUser(request){
 		// Not logged in
 		console.log('Please login to view this page!');
 		return false;
+		
 	}
 
 }
