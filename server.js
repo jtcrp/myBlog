@@ -6,7 +6,7 @@ const moment =  require('moment');
 const mysql = require('mysql'); //mysql for database operations module
 const path = require('path');
 var fs = require('fs'); //delete files module
-const session = require('express-session');
+const session = require('cookie-session');
 const { engine } = require ('express-handlebars'); //handlebar module
 const { nanoid } = require('nanoid'); //nano id module for random file name generation
 const app = express();
@@ -32,6 +32,9 @@ const connection = mysql.createConnection({
 mysql://b38448ba3640bf:70ba6c26@us-cdbr-east-05.cleardb.net/heroku_2e3a5cc9d238bb7?reconnect=true
 */
 //initializing session modules
+
+app.set('trust proxy', 1);
+
 app.use(session({
 	secret: 'secret',
 	resave: true,
@@ -92,7 +95,7 @@ function getUser(request){
 		// Not logged in
 		console.log('Please login to view this page!');
 		return false;
-		
+
 	}
 
 }
