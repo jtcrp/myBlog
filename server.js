@@ -181,7 +181,7 @@ app.post('/create', upload.single('image-file'), function (req, res, next) {
 
 	//form input data
 	let blogPost = req.body;
-	let userData = getUser(req);
+	let userData = getUser(req); 
 
 	//post date formatting to MYSQL DateTime 
 	let date =  moment(new Date()).format("YYYY-MM-DD HH:mm:ss");
