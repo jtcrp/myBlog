@@ -402,4 +402,11 @@ app.get('/',function (req, res) {
 });
 
 //Server starter
-app.listen(9000);                            
+//app.listen(9000);               
+
+// Start the server
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`App listening on port ${PORT}`);
+  console.log('Press Ctrl+C to quit.');
+});
